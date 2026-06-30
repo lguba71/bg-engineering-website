@@ -1,33 +1,47 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="hu">
-  <head>
-    <meta charset="utf-8" />
-    <title>B&G Engineering</title>
-    <meta
-      name="description"
-      content="Külső gépész tervezői támogatás gyártási, automatizálási és prototípus projektekhez."
-    />
-  </head>
+<BaseLayout
+  lang="hu"
+  title="B&G Engineering – Gépészeti tervezés"
+  description="Külső gépész tervezői támogatás gyártási, automatizálási és prototípus projektekhez."
+>
+  <section class="hero">
+    <p class="eyebrow">Gyártásközeli gépészeti tervezés</p>
 
-  <body>
-    <main>
-      <h1>B&G Engineering</h1>
+    <h1>Gépészeti tervezés gyártási és automatizálási projektekhez.</h1>
 
-      <p>
-        Külső gépész tervezői támogatás gyártási, automatizálási és prototípus projektekhez.
-      </p>
+    <p class="lead">
+      Külső mérnöki kapacitás célgépekhez, fixture-ökhöz, jigekhez,
+      DFM feladatokhoz, prototípusokhoz és 3D nyomtatással támogatott fejlesztéshez.
+    </p>
 
-      <p>
-        Célgépek · fixture-ök · jigek · DFM · CAD dokumentáció · prototípus · 3D nyomtatás
-      </p>
+    <div class="button-row">
+      <a class="button" href="/kapcsolat/">Kapcsolatfelvétel</a>
+      <a class="button secondary" href="/szolgaltatasok/">Szolgáltatások</a>
+    </div>
+  </section>
 
-    	<nav>
-  		<a href="/hu/">Magyar</a>
-  		·
-  		<a href="/en/">English</a>
-		</nav>
-    </main>
-  </body>
-</html>
+  <section class="service-grid">
+    <article class="card">
+      <h2>Gépészeti tervezés</h2>
+      <p>CAD modellezés, szerelési egységek és gyártásközeli dokumentáció.</p>
+    </article>
+
+    <article class="card">
+      <h2>Fixture-ök és jigek</h2>
+      <p>Szerelő-, pozicionáló-, ellenőrző- és gyártástámogató készülékek.</p>
+    </article>
+
+    <article class="card">
+      <h2>DFM / DFA támogatás</h2>
+      <p>Gyárthatósági, szerelhetőségi és karbantarthatósági tervezési átnézés.</p>
+    </article>
+
+    <article class="card">
+      <h2>Prototípus és 3D nyomtatás</h2>
+      <p>Tesztdarabok, készülékalkatrészek és kis szériás műszaki elemek.</p>
+    </article>
+  </section>
+</BaseLayout>

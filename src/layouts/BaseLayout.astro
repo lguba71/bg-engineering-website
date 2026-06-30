@@ -11,10 +11,10 @@ const { title, description, lang = "hu" } = Astro.props;
 
 const isHu = lang === "hu";
 
-const homeUrl = isHu ? "/hu/" : "/en/";
-const servicesUrl = isHu ? "/hu/szolgaltatasok/" : "/en/services/";
-const contactUrl = isHu ? "/hu/kapcsolat/" : "/en/contact/";
-const otherLangUrl = isHu ? "/en/" : "/hu/";
+const homeUrl = isHu ? "/" : "/en/";
+const servicesUrl = isHu ? "/szolgaltatasok/" : "/en/services/";
+const contactUrl = isHu ? "/kapcsolat/" : "/en/contact/";
+const otherLangUrl = isHu ? "/en/" : "/";
 ---
 
 <html lang={lang}>
