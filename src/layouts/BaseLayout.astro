@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: "hu" | "en";
+}
+
+const { title, description, lang = "hu" } = Astro.props;
+
+const isHu = lang === "hu";
+
+const homeUrl = isHu ? "/hu/" : "/en/";
+const servicesUrl = isHu ? "/hu/szolgaltatasok/" : "/en/services/";
+const contactUrl = isHu ? "/hu/kapcsolat/" : "/en/contact/";
+const otherLangUrl = isHu ? "/en/" : "/hu/";
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand" href={homeUrl}>B&G Engineering</a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <a href={servicesUrl}>{isHu ? "Szolgáltatások" : "Services"}</a>
+          <a href={contactUrl}>{isHu ? "Kapcsolat" : "Contact"}</a>
+          <a href={otherLangUrl}>{isHu ? "English" : "Magyar"}</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="site-main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <p>
+          © B&G Engineering. {isHu
+            ? "Külső gépész tervezői támogatás gyártási és automatizálási projektekhez."
+            : "External mechanical design support for manufacturing and automation projects."}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
