@@ -1,50 +1,53 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="hu">
-  <head>
-    <meta charset="utf-8" />
-    <title>Szolgáltatások – B&G Engineering</title>
-    <meta
-      name="description"
-      content="Gépészeti tervezés, fixture- és jigtervezés, DFM támogatás, prototípus-készítés és 3D nyomtatás."
-    />
-  </head>
+<BaseLayout
+  lang="hu"
+  title="Szolgáltatások – B&G Engineering"
+  description="Gépészeti tervezés, fixture- és jigtervezés, DFM támogatás, prototípus-készítés és 3D nyomtatás gyártási projektekhez."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Szolgáltatások</p>
+    <h1>Gépészeti tervezési támogatás gyártási projektekhez.</h1>
+    <p class="lead">
+      Külső mérnöki kapacitás célgépekhez, fixture-ökhöz, jigekhez,
+      DFM feladatokhoz, prototípusokhoz és gyártásközeli CAD dokumentációhoz.
+    </p>
+  </section>
 
-  <body>
-    <main>
-      <p><a href="/hu/">← Vissza a főoldalra</a></p>
+  <section class="content-section">
+    <h2>Gépészeti tervezés</h2>
+    <p>
+      CAD modellezés, szerelési egységek, gyártási rajzok és műszaki dokumentáció
+      készítése gyártási, automatizálási és prototípus projektekhez.
+    </p>
 
-      <h1>Szolgáltatások</h1>
+    <h2>Fixture-ök, jigek és készülékek</h2>
+    <p>
+      Szerelő-, pozicionáló-, ellenőrző- és gyártástámogató készülékek tervezése
+      valós gyártási környezethez, kezelhetőségre és ismételhetőségre figyelve.
+    </p>
 
-      <h2>Gépészeti tervezés</h2>
-      <p>
-        Külső gépész tervezői támogatás gyártási, automatizálási és prototípus
-        projektekhez. CAD modellezés, szerelési egységek, műszaki dokumentáció
-        és gyártásközeli tervezési támogatás.
-      </p>
+    <h2>DFM / DFA támogatás</h2>
+    <p>
+      Konstrukciók gyakorlati átnézése gyárthatóság, szerelhetőség,
+      karbantarthatóság, hozzáférés és gyártási megbízhatóság szempontjából.
+    </p>
 
-      <h2>Fixture-ök, jigek és készülékek</h2>
-      <p>
-        Szerelő-, pozicionáló-, ellenőrző- és gyártástámogató készülékek
-        tervezése gyártási környezethez.
-      </p>
+    <h2>Prototípus és 3D nyomtatás</h2>
+    <p>
+      3D nyomtatással támogatott tesztdarabok, készülékalkatrészek,
+      ellenőrző segédelemek és kis szériás műszaki alkatrészek.
+    </p>
+  </section>
 
-      <h2>DFM / DFA támogatás</h2>
-      <p>
-        Konstrukciók átnézése gyárthatóság, szerelhetőség, karbantarthatóság
-        és gyártási megbízhatóság szempontjából.
-      </p>
-
-      <h2>Prototípus és 3D nyomtatás</h2>
-      <p>
-        3D nyomtatással támogatott prototípusok, tesztdarabok,
-        készülékalkatrészek és kis szériás műszaki elemek.
-      </p>
-
-      <p>
-        <a href="/hu/kapcsolat/">Kapcsolatfelvétel</a>
-      </p>
-    </main>
-  </body>
-</html>
+  <section class="cta-box">
+    <h2>Van konkrét feladat?</h2>
+    <p>
+      Rövid projektleírás alapján el lehet dönteni, milyen mérnöki támogatásra,
+      dokumentációra vagy prototípus-lépésre van szükség.
+    </p>
+    <a class="button" href="/kapcsolat/">Kapcsolatfelvétel</a>
+  </section>
+</BaseLayout>
