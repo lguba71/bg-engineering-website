@@ -251,18 +251,27 @@ h2 {
   margin: 0;
 }
 
+.avatar-placeholder,
+.avatar-photo {
+  border-radius: 999px;
+  flex: 0 0 72px;
+  height: 72px;
+  width: 72px;
+}
+
 .avatar-placeholder {
   align-items: center;
   background: var(--accent);
-  border-radius: 999px;
   color: #ffffff;
   display: flex;
-  flex: 0 0 72px;
   font-size: 1.3rem;
   font-weight: 750;
-  height: 72px;
   justify-content: center;
-  width: 72px;
+}
+
+.avatar-photo {
+  border: 2px solid var(--line);
+  object-fit: cover;
 }
 
 .contact-list {
@@ -286,19 +295,39 @@ h2 {
   margin: 0.2rem 0 0;
 }
 
+.contact-list address {
+  font-style: normal;
+}
+
+.map-placeholder,
+.map-embed {
+  border-radius: 14px;
+  min-height: 220px;
+  overflow: hidden;
+}
+
 .map-placeholder {
   align-items: center;
   background: #eef4f6;
   border: 1px dashed var(--line);
-  border-radius: 14px;
   color: var(--muted);
   display: flex;
-  min-height: 220px;
   padding: 1.25rem;
 }
 
 .map-placeholder p {
   margin: 0.35rem 0 0;
+}
+
+.map-embed {
+  border: 1px solid var(--line);
+}
+
+.map-embed iframe {
+  border: 0;
+  display: block;
+  height: 260px;
+  width: 100%;
 }
 
 .contact-message-box h2 {
