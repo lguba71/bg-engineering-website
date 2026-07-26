@@ -19,7 +19,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <section class="contact-layout">
     <aside class="contact-card">
       <div class="contact-profile">
-        <div class="avatar-placeholder" aria-hidden="true">LG</div>
+        <img
+          class="avatar-photo"
+          src="https://lguba71.github.io/assets/img/avatar.png"
+          alt="Lajos Guba"
+          loading="lazy"
+        />
         <div>
           <p class="eyebrow">Contact person</p>
           <h2>Lajos Guba</h2>
@@ -30,19 +35,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <dl class="contact-list">
         <div>
           <dt>Phone</dt>
-          <dd>To be added</dd>
+          <dd><a href="tel:+36302287493">+36 30 228 7493</a></dd>
         </div>
         <div>
           <dt>Address</dt>
-          <dd>To be added</dd>
+          <dd>
+            <address>
+              5350 Tiszafüred<br />
+              Damjanich u. 29.<br />
+              Hungary
+            </address>
+          </dd>
         </div>
       </dl>
 
-      <div class="map-placeholder" aria-label="Map placeholder">
-        <div>
-          <strong>Map</strong>
-          <p>The map will be added after the final address is defined.</p>
-        </div>
+      <div class="map-embed" aria-label="Map: 5350 Tiszafüred, Damjanich u. 29.">
+        <iframe
+          title="B&G Engineering map"
+          src="https://www.google.com/maps?q=5350%20Tiszaf%C3%BCred%2C%20Damjanich%20u.%2029&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </aside>
 
