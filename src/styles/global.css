@@ -154,6 +154,57 @@ h2 {
   font-size: 0.95rem;
 }
 
+.note-box {
+  background: #eef4f6;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--text);
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem;
+}
+
+.quote-form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.quote-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 650;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  font: inherit;
+  padding: 0.7rem 0.8rem;
+  width: 100%;
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+.checkbox-label {
+  align-items: flex-start;
+  display: flex !important;
+  gap: 0.6rem !important;
+  font-weight: 500 !important;
+}
+
+.checkbox-label input {
+  margin-top: 0.35rem;
+  width: auto;
+}
+
 .cta-box {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -177,17 +228,30 @@ h2 {
 .button {
   display: inline-block;
   padding: 0.7rem 1rem;
+  border: 0;
   border-radius: 999px;
   background: var(--accent);
   color: #ffffff;
+  cursor: pointer;
   text-decoration: none;
+  font: inherit;
   font-weight: 650;
+}
+
+.button:hover {
+  background: var(--accent-dark);
+  color: #ffffff;
 }
 
 .button.secondary {
   background: transparent;
   color: var(--accent);
   border: 1px solid var(--accent);
+}
+
+.button.secondary:hover {
+  background: var(--accent);
+  color: #ffffff;
 }
 
 .site-footer {
@@ -209,5 +273,9 @@ h2 {
 
   .hero.compact {
     padding: 2.4rem 0 1.6rem;
+  }
+
+  .quote-form {
+    padding: 1rem;
   }
 }
