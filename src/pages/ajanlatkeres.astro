@@ -19,11 +19,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="content-section">
     <div class="note-box">
       <strong>V0.1 állapot:</strong> az űrlap szerkezete elkészült, de a beküldés
-      adatbázisba mentése még nincs bekötve. A mezők célja most az ajánlatkérési
-      logika és az oldal tartalmának tesztelése.
+      adatbázisba mentése és a fájlfeltöltés háttértárolása még nincs bekötve. A mezők célja
+      most az ajánlatkérési logika és az oldal tartalmának tesztelése.
     </div>
 
-    <form class="quote-form" method="post" action="/api/quote-request">
+    <form class="quote-form" method="post" action="/api/quote-request" enctype="multipart/form-data">
       <label>
         Név
         <input type="text" name="name" autocomplete="name" required />
@@ -65,6 +65,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <label>
         Mi áll jelenleg rendelkezésre?
         <textarea name="available_inputs" rows="5" placeholder="Például: kézi vázlat, régi rajz, 3D modell, fotó, mintadarab, méretek, meglévő gép vagy folyamatleírás."></textarea>
+      </label>
+
+      <label>
+        Kapcsolódó fájlok feltöltése
+        <input
+          type="file"
+          name="attachments"
+          multiple
+          accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx"
+        />
+        <span class="form-help">
+          Feltölthető például PDF, kép, STEP/STP, STL, DXF/DWG, ZIP vagy Office dokumentum.
+          Nagyobb fájlokhoz később külön fájlmegosztási megoldás is használható.
+        </span>
       </label>
 
       <label>
