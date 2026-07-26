@@ -69,12 +69,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <label>
         Kapcsolódó fájlok feltöltése
-        <input
-          type="file"
-          name="attachments"
-          multiple
-          accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx"
-        />
+        <input type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx" />
         <span class="form-help">
           Feltölthető például PDF, kép, STEP/STP, STL, DXF/DWG, ZIP vagy Office dokumentum.
           Nagyobb fájlokhoz később külön fájlmegosztási megoldás is használható.
@@ -102,12 +97,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="cta-box">
       <h2>Nem biztos, hogyan fogalmazd meg?</h2>
       <p>
-        Röviden írd le, mit szeretnél elérni. A pontos műszaki részleteket később,
-        egyeztetés közben is lehet tisztázni.
+        Ha nem vagy benne biztos, hogy pontosan mit szeretnél, vedd fel velünk a kapcsolatot.
       </p>
-      <p>
-        Ideiglenes kapcsolat: <a href="mailto:lguba71@hotmail.com">lguba71@hotmail.com</a>
-      </p>
+      <div class="button-row">
+        <a class="button secondary" href="/kapcsolat/">Kapcsolat</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
