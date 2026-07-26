@@ -189,8 +189,19 @@ h2 {
   width: 100%;
 }
 
+.quote-form input[type="file"] {
+  background: #ffffff;
+  cursor: pointer;
+}
+
 .quote-form textarea {
   resize: vertical;
+}
+
+.form-help {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .checkbox-label {
