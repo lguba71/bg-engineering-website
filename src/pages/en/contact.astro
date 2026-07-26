@@ -9,30 +9,86 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 >
   <section class="hero compact">
     <p class="eyebrow">Contact</p>
-    <h1>Send a short description of the engineering task.</h1>
+    <h1>Contact for a technical discussion.</h1>
     <p class="lead">
-      If you need external mechanical design support for a manufacturing,
-      automation, fixture, jig, DFM or prototyping project, a few basic details
-      are enough for the first discussion.
+      A short message is enough for the first step. Describe the mechanical design,
+      production-support or prototyping task briefly, and we can clarify the next step.
     </p>
   </section>
 
-  <section class="content-section">
-    <h2>Useful information to include</h2>
-    <ul>
-      <li>project goal,</li>
-      <li>available CAD model, drawing or reference geometry,</li>
-      <li>required timeline,</li>
-      <li>whether the goal is a prototype, one-off part or small batch,</li>
-      <li>manufacturing, assembly or material constraints.</li>
-    </ul>
+  <section class="contact-layout">
+    <aside class="contact-card">
+      <div class="contact-profile">
+        <div class="avatar-placeholder" aria-hidden="true">LG</div>
+        <div>
+          <p class="eyebrow">Contact person</p>
+          <h2>Lajos Guba</h2>
+          <p class="note">Mechanical Design Engineer · B&G Engineering</p>
+        </div>
+      </div>
 
-    <h2>Email</h2>
-    <p>
-      <a href="mailto:lguba71@hotmail.com">lguba71@hotmail.com</a>
-    </p>
-    <p class="note">
-      Temporary contact address until the bgengineering.hu domain email is configured.
-    </p>
+      <dl class="contact-list">
+        <div>
+          <dt>Phone</dt>
+          <dd>To be added</dd>
+        </div>
+        <div>
+          <dt>Address</dt>
+          <dd>To be added</dd>
+        </div>
+      </dl>
+
+      <div class="map-placeholder" aria-label="Map placeholder">
+        <div>
+          <strong>Map</strong>
+          <p>The map will be added after the final address is defined.</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="contact-message-box">
+      <h2>Send a message</h2>
+      <p>
+        Use this short form for general questions. For a specific technical task,
+        the quote request form gives a more structured starting point.
+      </p>
+
+      <form class="quote-form contact-form" method="post" action="/api/contact-message">
+        <label>
+          Name
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="7" required></textarea>
+        </label>
+
+        <label class="checkbox-label">
+          <input type="checkbox" name="privacy_acknowledged" required />
+          I understand that the information provided in this message is used to respond to the inquiry.
+        </label>
+
+        <button class="button" type="submit">Send message</button>
+      </form>
+
+      <p class="note form-status-note">
+        Technical submission handling will be connected later as an email notification workflow.
+      </p>
+
+      <div class="cta-box">
+        <h2>Specific quote request?</h2>
+        <p>
+          If you want to send drawings, images, CAD models or a more detailed technical description,
+          use the quote request page.
+        </p>
+        <a class="button secondary" href="/en/request-quote/">Request a quote</a>
+      </div>
+    </div>
   </section>
 </BaseLayout>
