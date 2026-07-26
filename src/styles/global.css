@@ -105,18 +105,36 @@ h2 {
   color: var(--muted);
 }
 
-.service-grid {
+.service-grid,
+.case-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1rem;
   margin: 2rem 0;
 }
 
-.card {
+.card,
+.case-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1.25rem;
+}
+
+.case-card h2 {
+  margin-top: 0.35rem;
+}
+
+.case-card ul {
+  padding-left: 1.15rem;
+}
+
+.case-meta {
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
 }
 
 .content-section {
@@ -129,6 +147,11 @@ h2 {
 
 .content-section ul {
   padding-left: 1.25rem;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .cta-box {
