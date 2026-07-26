@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="hu"
+  title="Ajánlatkérés – B&G Engineering"
+  description="Ajánlatkérés gépészeti tervezési, fixture, jig, DFM és prototípus fejlesztési feladatokra."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Ajánlatkérés</p>
+    <h1>Írd le röviden a mérnöki feladatot.</h1>
+    <p class="lead">
+      Az első ajánlatkéréshez nem kell teljes műszaki dokumentáció. Elég, ha megadod
+      a projekt célját, a rendelkezésre álló információkat és a főbb kötöttségeket.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <div class="note-box">
+      <strong>V0.1 állapot:</strong> az űrlap szerkezete elkészült, de a beküldés
+      adatbázisba mentése még nincs bekötve. A mezők célja most az ajánlatkérési
+      logika és az oldal tartalmának tesztelése.
+    </div>
+
+    <form class="quote-form" method="post" action="/api/quote-request">
+      <label>
+        Név
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+
+      <label>
+        Cégnév
+        <input type="text" name="company" autocomplete="organization" />
+      </label>
+
+      <label>
+        E-mail
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+
+      <label>
+        Telefonszám
+        <input type="tel" name="phone" autocomplete="tel" />
+      </label>
+
+      <label>
+        Projekt típusa
+        <select name="project_type" required>
+          <option value="">Válassz projekt típust</option>
+          <option value="mechanical_design">Gépészeti tervezés</option>
+          <option value="fixture_jig">Fixture, jig vagy gyártási készülék</option>
+          <option value="dfm_dfa">DFM / DFA támogatás</option>
+          <option value="prototype_3d_printing">Prototípus vagy 3D nyomtatás</option>
+          <option value="documentation">Rajz, dokumentáció vagy meglévő anyag rendezése</option>
+          <option value="other">Egyéb mérnöki feladat</option>
+        </select>
+      </label>
+
+      <label>
+        A feladat rövid leírása
+        <textarea name="project_description" rows="7" required></textarea>
+      </label>
+
+      <label>
+        Mi áll jelenleg rendelkezésre?
+        <textarea name="available_inputs" rows="5" placeholder="Például: kézi vázlat, régi rajz, 3D modell, fotó, mintadarab, méretek, meglévő gép vagy folyamatleírás."></textarea>
+      </label>
+
+      <label>
+        Határidő vagy kívánt ütemezés
+        <input type="text" name="timeline" placeholder="Például: sürgős, 2–3 hét, következő hónap, még tervezés alatt" />
+      </label>
+
+      <label>
+        Megjegyzés, gyártási vagy szerelési kötöttség
+        <textarea name="constraints" rows="5" placeholder="Például: anyag, gyártástechnológia, helyszűke, meglévő alkatrész, szabvány, karbantartási hozzáférés."></textarea>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" name="privacy_acknowledged" required />
+        Tudomásul veszem, hogy ez egy előzetes ajánlatkérési kapcsolatfelvétel, és az adatok kezelése a válaszadáshoz szükséges.
+      </label>
+
+      <button class="button" type="submit">Ajánlatkérés elküldése</button>
+    </form>
+
+    <div class="cta-box">
+      <h2>Nem biztos, hogyan fogalmazd meg?</h2>
+      <p>
+        Röviden írd le, mit szeretnél elérni. A pontos műszaki részleteket később,
+        egyeztetés közben is lehet tisztázni.
+      </p>
+      <p>
+        Ideiglenes kapcsolat: <a href="mailto:lguba71@hotmail.com">lguba71@hotmail.com</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
