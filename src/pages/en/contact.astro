@@ -1,41 +1,35 @@
 ---
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Contact – B&G Engineering</title>
-    <meta
-      name="description"
-      content="Contact B&G Engineering for mechanical design, fixtures, jigs, DFM and prototyping support."
-    />
-  </head>
+<BaseLayout
+  lang="en"
+  title="Contact – B&G Engineering"
+  description="Contact B&G Engineering for mechanical design, fixtures, jigs, DFM and prototyping support."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Contact</p>
+    <h1>Send a short description of the engineering task.</h1>
+    <p class="lead">
+      If you need external mechanical design support for a manufacturing,
+      automation, fixture, jig, DFM or prototyping project, a few basic details
+      are enough for the first discussion.
+    </p>
+  </section>
 
-  <body>
-    <main>
-      <p><a href="/en/">← Back to home</a></p>
+  <section class="content-section">
+    <h2>Useful information to include</h2>
+    <ul>
+      <li>project goal,</li>
+      <li>available CAD model, drawing or reference geometry,</li>
+      <li>required timeline,</li>
+      <li>whether the goal is a prototype, one-off part or small batch,</li>
+      <li>manufacturing, assembly or material constraints.</li>
+    </ul>
 
-      <h1>Contact</h1>
-
-      <p>
-        If you need external mechanical design support for a manufacturing,
-        automation, fixture, jig, DFM or prototyping project, send a short
-        description of the task.
-      </p>
-
-      <h2>Useful information to include</h2>
-
-      <ul>
-        <li>project goal,</li>
-        <li>available CAD model, drawing or reference geometry,</li>
-        <li>required timeline,</li>
-        <li>whether the goal is a prototype, one-off part or small batch,</li>
-        <li>manufacturing, assembly or material constraints.</li>
-      </ul>
-
-      <p>
-        Email: <a href="mailto:lajos@bgengineering.hu">lajos@bgengineering.hu</a>
-      </p>
-    </main>
-  </body>
-</html>
+    <h2>Email</h2>
+    <p>
+      <a href="mailto:lajos@bgengineering.hu">lajos@bgengineering.hu</a>
+    </p>
+  </section>
+</BaseLayout>
