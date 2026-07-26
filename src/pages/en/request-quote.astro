@@ -19,11 +19,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   <section class="content-section">
     <div class="note-box">
       <strong>V0.1 status:</strong> the form structure is prepared, but database-backed
-      submission is not connected yet. The current goal is to test the request logic
-      and page content.
+      submission and file storage are not connected yet. The current goal is to test the
+      request logic and page content.
     </div>
 
-    <form class="quote-form" method="post" action="/api/quote-request">
+    <form class="quote-form" method="post" action="/api/quote-request" enctype="multipart/form-data">
       <label>
         Name
         <input type="text" name="name" autocomplete="name" required />
@@ -65,6 +65,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       <label>
         What is currently available?
         <textarea name="available_inputs" rows="5" placeholder="For example: hand sketch, old drawing, 3D model, photo, sample part, dimensions, existing machine or process description."></textarea>
+      </label>
+
+      <label>
+        Related file upload
+        <input
+          type="file"
+          name="attachments"
+          multiple
+          accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx"
+        />
+        <span class="form-help">
+          You can upload PDFs, images, STEP/STP, STL, DXF/DWG, ZIP or Office documents.
+          Larger files can later be handled through a separate file-sharing workflow.
+        </span>
       </label>
 
       <label>
