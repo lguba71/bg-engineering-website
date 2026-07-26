@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="en"
+  title="Request a Quote – B&G Engineering"
+  description="Request a quote for mechanical design, fixtures, jigs, DFM support and prototyping tasks."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Request a quote</p>
+    <h1>Describe the engineering task briefly.</h1>
+    <p class="lead">
+      A complete technical package is not required for the first request. It is enough
+      to describe the project goal, available information and the main constraints.
+    </p>
+  </section>
+
+  <section class="content-section">
+    <div class="note-box">
+      <strong>V0.1 status:</strong> the form structure is prepared, but database-backed
+      submission is not connected yet. The current goal is to test the request logic
+      and page content.
+    </div>
+
+    <form class="quote-form" method="post" action="/api/quote-request">
+      <label>
+        Name
+        <input type="text" name="name" autocomplete="name" required />
+      </label>
+
+      <label>
+        Company
+        <input type="text" name="company" autocomplete="organization" />
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" autocomplete="email" required />
+      </label>
+
+      <label>
+        Phone
+        <input type="tel" name="phone" autocomplete="tel" />
+      </label>
+
+      <label>
+        Project type
+        <select name="project_type" required>
+          <option value="">Select project type</option>
+          <option value="mechanical_design">Mechanical design</option>
+          <option value="fixture_jig">Fixture, jig or production aid</option>
+          <option value="dfm_dfa">DFM / DFA support</option>
+          <option value="prototype_3d_printing">Prototype or 3D printing</option>
+          <option value="documentation">Drawing, documentation or legacy material cleanup</option>
+          <option value="other">Other engineering task</option>
+        </select>
+      </label>
+
+      <label>
+        Short task description
+        <textarea name="project_description" rows="7" required></textarea>
+      </label>
+
+      <label>
+        What is currently available?
+        <textarea name="available_inputs" rows="5" placeholder="For example: hand sketch, old drawing, 3D model, photo, sample part, dimensions, existing machine or process description."></textarea>
+      </label>
+
+      <label>
+        Required timeline or schedule
+        <input type="text" name="timeline" placeholder="For example: urgent, 2–3 weeks, next month, still under planning" />
+      </label>
+
+      <label>
+        Notes, manufacturing or assembly constraints
+        <textarea name="constraints" rows="5" placeholder="For example: material, manufacturing process, space limitation, existing component, standard, maintenance access."></textarea>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" name="privacy_acknowledged" required />
+        I understand that this is an initial quote request and that the provided information is used to respond to the request.
+      </label>
+
+      <button class="button" type="submit">Send quote request</button>
+    </form>
+
+    <div class="cta-box">
+      <h2>Not sure how to describe it?</h2>
+      <p>
+        Briefly describe what you want to achieve. The exact technical details can be
+        clarified later during the first discussion.
+      </p>
+      <p>
+        Temporary contact: <a href="mailto:lguba71@hotmail.com">lguba71@hotmail.com</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
