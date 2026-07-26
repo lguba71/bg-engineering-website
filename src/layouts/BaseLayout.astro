@@ -13,6 +13,7 @@ const isHu = lang === "hu";
 
 const homeUrl = isHu ? "/" : "/en/";
 const servicesUrl = isHu ? "/szolgaltatasok/" : "/en/services/";
+const caseStudiesUrl = isHu ? "/esettanulmanyok/" : "/en/case-studies/";
 const contactUrl = isHu ? "/kapcsolat/" : "/en/contact/";
 const otherLangUrl = isHu ? "/en/" : "/";
 ---
@@ -32,6 +33,7 @@ const otherLangUrl = isHu ? "/en/" : "/";
 
         <nav class="nav" aria-label="Main navigation">
           <a href={servicesUrl}>{isHu ? "Szolgáltatások" : "Services"}</a>
+          <a href={caseStudiesUrl}>{isHu ? "Esettanulmányok" : "Case studies"}</a>
           <a href={contactUrl}>{isHu ? "Kapcsolat" : "Contact"}</a>
           <a href={otherLangUrl}>{isHu ? "English" : "Magyar"}</a>
         </nav>
