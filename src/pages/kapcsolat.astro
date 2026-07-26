@@ -19,7 +19,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <section class="contact-layout">
     <aside class="contact-card">
       <div class="contact-profile">
-        <div class="avatar-placeholder" aria-hidden="true">LG</div>
+        <img
+          class="avatar-photo"
+          src="https://lguba71.github.io/assets/img/avatar.png"
+          alt="Lajos Guba"
+          loading="lazy"
+        />
         <div>
           <p class="eyebrow">Kapcsolattartó</p>
           <h2>Lajos Guba</h2>
@@ -30,19 +35,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <dl class="contact-list">
         <div>
           <dt>Telefon</dt>
-          <dd>Megadás alatt</dd>
+          <dd><a href="tel:+36302287493">+36 30 228 7493</a></dd>
         </div>
         <div>
           <dt>Cím</dt>
-          <dd>Megadás alatt</dd>
+          <dd>
+            <address>
+              5350 Tiszafüred<br />
+              Damjanich u. 29.
+            </address>
+          </dd>
         </div>
       </dl>
 
-      <div class="map-placeholder" aria-label="Térkép helye">
-        <div>
-          <strong>Térkép</strong>
-          <p>A térkép a végleges cím megadása után kerül be az oldalra.</p>
-        </div>
+      <div class="map-embed" aria-label="Térkép: 5350 Tiszafüred, Damjanich u. 29.">
+        <iframe
+          title="B&G Engineering térkép"
+          src="https://www.google.com/maps?q=5350%20Tiszaf%C3%BCred%2C%20Damjanich%20u.%2029&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </aside>
 
