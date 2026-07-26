@@ -74,6 +74,10 @@ a:hover {
   padding: 4rem 0 3rem;
 }
 
+.hero.compact {
+  padding: 3rem 0 2rem;
+}
+
 .eyebrow {
   color: var(--accent);
   font-weight: 700;
@@ -115,6 +119,31 @@ h2 {
   padding: 1.25rem;
 }
 
+.content-section {
+  max-width: 760px;
+}
+
+.content-section h2:first-child {
+  margin-top: 0;
+}
+
+.content-section ul {
+  padding-left: 1.25rem;
+}
+
+.cta-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin: 3rem 0 1rem;
+  padding: 1.5rem;
+  max-width: 760px;
+}
+
+.cta-box h2 {
+  margin-top: 0;
+}
+
 .button-row {
   display: flex;
   gap: 0.8rem;
@@ -153,5 +182,9 @@ h2 {
 
   .hero {
     padding: 3.2rem 0 2.2rem;
+  }
+
+  .hero.compact {
+    padding: 2.4rem 0 1.6rem;
   }
 }
