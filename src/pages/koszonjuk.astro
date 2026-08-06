@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="hu"
+  title="Köszönjük – B&G Engineering"
+  description="Köszönőoldal B&G Engineering kapcsolatfelvételhez és ajánlatkéréshez."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Köszönjük</p>
+    <h1>A beküldési folyamat tesztállapotban működik.</h1>
+    <p class="lead">
+      Ez az oldal azt jelzi, hogy az űrlap útvonala már nem hibára fut. A végleges
+      e-mail értesítés, D1 adatmentés, R2 fájltárolás és Turnstile védelem későbbi backend lépésben készül el.
+    </p>
+  </section>
+
+  <section class="content-section thank-you-card">
+    <div class="note-box form-status-box">
+      <strong>MVP / tesztállapot:</strong> az űrlap jelenleg nem küld adatot szerverre,
+      nem ment adatbázisba, és nem továbbít fájlt. Éles használat előtt a Cloudflare
+      háttérrendszert külön be kell kötni.
+    </div>
+
+    <h2>Mit jelent ez most?</h2>
+    <ul class="check-list">
+      <li>Az ajánlatkérő és kapcsolat űrlap útvonala ellenőrizhető.</li>
+      <li>A felhasználó kontrollált visszajelző oldalra jut.</li>
+      <li>A fájlfeltöltés helye előkészítve marad, de még nem aktív.</li>
+      <li>A tényleges beérkező ajánlatkérések kezelése a következő backend ütemben készül el.</li>
+    </ul>
+
+    <div class="button-row">
+      <a class="button" href="/ajanlatkeres/">Vissza az ajánlatkéréshez</a>
+      <a class="button secondary" href="/kapcsolat/">Kapcsolat oldal</a>
+    </div>
+  </section>
+</BaseLayout>
