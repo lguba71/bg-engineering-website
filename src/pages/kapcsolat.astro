@@ -65,7 +65,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         az ajánlatkérő űrlap ad részletesebb kiindulást.
       </p>
 
-      <form class="quote-form contact-form" method="post" action="/api/contact-message">
+      <div class="note-box form-status-box">
+        <strong>MVP / tesztállapot:</strong> az űrlap most kontrollált köszönőoldalra visz,
+        de még nem küld e-mail értesítést és nem ment adatot. A végleges bekötés későbbi backend ütem.
+      </div>
+
+      <form
+        class="quote-form contact-form"
+        method="post"
+        action="/koszonjuk/"
+        data-static-form="contact-message"
+        data-thank-you="/koszonjuk/"
+      >
         <label>
           Név
           <input type="text" name="name" autocomplete="name" required />
@@ -86,11 +97,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           Tudomásul veszem, hogy az üzenetben megadott adatok a válaszadáshoz szükségesek.
         </label>
 
-        <button class="button" type="submit">Üzenet elküldése</button>
+        <button class="button" type="submit">Üzenetküldés tesztelése</button>
       </form>
 
       <p class="note form-status-note">
-        Az üzenetküldés technikai bekötése később e-mail értesítésként készül el.
+        Éles használat előtt az üzenetküldést valódi e-mail értesítéssel és robotvédelemmel kell bekötni.
       </p>
 
       <div class="cta-box">
