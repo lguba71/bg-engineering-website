@@ -1,0 +1,16 @@
+---
+interface Props {
+  lang?: "hu" | "en";
+}
+
+const { lang = "hu" } = Astro.props;
+const isHu = lang === "hu";
+const href = isHu ? "/en/" : "/";
+const label = isHu ? "English" : "Magyar";
+const ariaLabel = isHu ? "Switch to English" : "Váltás magyar nyelvre";
+---
+
+<a class="language-switcher" href={href} aria-label={ariaLabel}>
+  <span aria-hidden="true">{isHu ? "EN" : "HU"}</span>
+  {label}
+</a>
