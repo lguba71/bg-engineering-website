@@ -1,0 +1,21 @@
+---
+interface TrustItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  items: TrustItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="trust-bar" aria-label="Trust indicators">
+  {items.map((item) => (
+    <div class="trust-item">
+      <strong>{item.value}</strong>
+      <span>{item.label}</span>
+    </div>
+  ))}
+</section>
