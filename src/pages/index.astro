@@ -1,47 +1,166 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import TrustBar from "../components/TrustBar.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+import ProcessSteps from "../components/ProcessSteps.astro";
+import CTASection from "../components/CTASection.astro";
+
+const trustItems = [
+  { value: "Gyártásközeli CAD", label: "modellek, rajzok és darabjegyzékek gyártási szemmel" },
+  { value: "Fixture / jig fókusz", label: "jól körülhatárolható gyártástámogató részfeladatok" },
+  { value: "DFM gondolkodás", label: "gyárthatóság, szerelhetőség és dokumentálhatóság" },
+  { value: "Portfólió bizonyíték", label: "részletes szakmai háttér az lguba71.github.io oldalon" },
+];
+
+const services = [
+  {
+    eyebrow: "CAD · rajz · BOM",
+    title: "3D-modell és dokumentáció",
+    text: "Meglévő modellek módosítása, részegységek rendezése, gyártási rajzcsomag és darabjegyzék előkészítése.",
+    points: ["3D-modell módosítása", "gyártási rajzcsomag", "darabjegyzék"],
+  },
+  {
+    eyebrow: "Fixture · jig",
+    title: "Gyártástámogató részfeladat",
+    text: "Pozicionálási, leszorítási, ellenőrzési vagy szerelési részfeladatok előkészítése túlzott célgép-ígéret nélkül.",
+    points: ["fixture- vagy jig-részfeladat", "gyártási segédeszköz", "kezelhetőség javítása"],
+  },
+  {
+    eyebrow: "Régi dokumentáció",
+    title: "Hiányos műszaki alapok rendezése",
+    text: "Régi rajzok, 2D dokumentációk, fotók és meglévő alkatrészek alapján használható műszaki kiindulás készítése.",
+    points: ["régi dokumentáció rendezése", "hiányzó információk jelölése", "CAD-alapú továbbépítés"],
+  },
+];
+
+const reasons = [
+  {
+    title: "Ha a belső kapacitás szűk",
+    text: "Jól lehatárolt CAD-, rajz- vagy készülékfeladat gyorsabban kiszervezhető, mint új erőforrást keresni.",
+  },
+  {
+    title: "Ha próbamunkával indulnál",
+    text: "A kezdő feladat lehet egy modellmódosítás, rajzcsomag, BOM vagy fixture-részfeladat, nem teljes célgéptervezés.",
+  },
+  {
+    title: "Ha a bemenő anyag hiányos",
+    text: "Régi rajzok, 2D dokumentációk és meglévő alkatrészek rendezése csökkenti az ajánlati és gyártási bizonytalanságot.",
+  },
+];
+
+const caseStudies = [
+  {
+    meta: "Fixture / jig · gyártástámogatás",
+    title: "Egyszerűbb, kezelhetőbb gyártási készülék kialakítása",
+    text: "A cél nem mindig egy komplex gép, hanem egy jól használható, gyártásközeli készülék vagy részmegoldás.",
+    href: "/esettanulmanyok/",
+    linkLabel: "Esettanulmányok megnyitása",
+  },
+  {
+    meta: "DFM / DFA · konstrukciós átnézés",
+    title: "Gyárthatósági átnézés prototípus előtt",
+    text: "A kritikus méretek, hozzáférések és szerelési sorrend vizsgálata csökkenti a felesleges gyártási köröket.",
+    href: "/esettanulmanyok/",
+    linkLabel: "Részletek",
+  },
+  {
+    meta: "Régi dokumentáció · CAD / rajz",
+    title: "Hiányos műszaki dokumentáció rendezése",
+    text: "A meglévő anyagok rendszerezése segíti a gyárthatóságot, a beszállítói egyeztetést és a későbbi módosításokat.",
+    href: "/esettanulmanyok/",
+    linkLabel: "Részletek",
+  },
+];
+
+const steps = [
+  { title: "Rövid leírás", text: "Beküldöd a feladat célját, a meglévő rajzokat, CAD adatokat vagy fotókat." },
+  { title: "Előzetes átnézés", text: "Átnézzük, mi ismert, mi hiányzik, és milyen kezdő részfeladat adható biztonságosan." },
+  { title: "Scope és ajánlat", text: "Rögzítjük a szállítandó anyagot, a feltételezéseket, a kizárásokat és az ütemezést." },
+  { title: "Kivitelezés", text: "A munka a jóváhagyott keretek között halad: CAD, rajz, BOM, készülékrész vagy dokumentáció." },
+];
 ---
 
 <BaseLayout
   lang="hu"
-  title="B&G Engineering – Gépészeti tervezés"
-  description="Külső gépész tervezői támogatás gyártási, automatizálási és prototípus projektekhez."
+  title="B&G Engineering – Gépészeti tervezés gyártási projektekhez"
+  description="Külső gépész tervezői kapacitás gyártási és automatizálási projektekhez: CAD, rajz, BOM, fixture, jig, DFM és régi dokumentáció rendezése."
 >
-  <section class="hero">
-    <p class="eyebrow">Gyártásközeli gépészeti tervezés</p>
+  <Hero
+    eyebrow="Gyártásközeli gépészeti tervezés"
+    title="Külső gépész tervezői kapacitás gyártási és automatizálási projektekhez."
+    lead="Jól körülhatárolható próbamunkákhoz, CAD-módosításhoz, részegységtervezéshez, rajzcsomaghoz, fixture- vagy jig-részfeladathoz és régi dokumentáció rendezéséhez."
+    primaryCta={{ href: "/ajanlatkeres/", label: "Ajánlatkérés" }}
+    secondaryCta={{ href: "/esettanulmanyok/", label: "Esettanulmányok" }}
+    tags={["3D-modell módosítás", "részegység", "rajzcsomag", "BOM", "fixture / jig", "régi dokumentáció"]}
+    visualTitle="Próbamunka logika"
+    visualItems={["Bemenő anyag", "Scope tisztázás", "CAD / rajz / BOM", "Ajánlati döntés"]}
+  />
 
-    <h1>Gépészeti tervezés gyártási és automatizálási projektekhez.</h1>
+  <TrustBar items={trustItems} />
 
-    <p class="lead">
-      Külső mérnöki kapacitás célgépekhez, fixture-ökhöz, jigekhez,
-      DFM feladatokhoz, prototípusokhoz és 3D nyomtatással támogatott fejlesztéshez.
-    </p>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Szolgáltatási belépőpontok</p>
+      <h2>Nem teljes célgépígéret, hanem jól kezelhető mérnöki részfeladat.</h2>
+      <p>
+        A B&amp;G Engineering üzleti oldala az ajánlatkérés felé vezet. A részletes szakmai bizonyítékok
+        és engineering note-ok a személyes portfólióoldalon érhetők el.
+      </p>
+    </div>
 
-    <div class="button-row">
-      <a class="button" href="/ajanlatkeres/">Ajánlatkérés</a>
-      <a class="button secondary" href="/szolgaltatasok/">Szolgáltatások</a>
+    <div class="service-grid">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
     </div>
   </section>
 
-  <section class="service-grid">
-    <article class="card">
-      <h2>Gépészeti tervezés</h2>
-      <p>CAD modellezés, szerelési egységek és gyártásközeli dokumentáció.</p>
-    </article>
+  <section class="section section-muted">
+    <div class="section-heading">
+      <p class="eyebrow">Mikor érdemes bevonni?</p>
+      <h2>Amikor a feladat már mérnöki figyelmet igényel, de még nem indokol teljes projektcsapatot.</h2>
+    </div>
 
-    <article class="card">
-      <h2>Fixture-ök és jigek</h2>
-      <p>Szerelő-, pozicionáló-, ellenőrző- és gyártástámogató készülékek.</p>
-    </article>
-
-    <article class="card">
-      <h2>DFM / DFA támogatás</h2>
-      <p>Gyárthatósági, szerelhetőségi és karbantarthatósági tervezési átnézés.</p>
-    </article>
-
-    <article class="card">
-      <h2>Prototípus és 3D nyomtatás</h2>
-      <p>Tesztdarabok, készülékalkatrészek és kis szériás műszaki elemek.</p>
-    </article>
+    <div class="reason-grid">
+      {reasons.map((reason) => (
+        <article class="reason-card">
+          <h3>{reason.title}</h3>
+          <p>{reason.text}</p>
+        </article>
+      ))}
+    </div>
   </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Kiemelt esettanulmány-területek</p>
+      <h2>Rövid, üzletileg értelmezhető bizonyítékok.</h2>
+      <p>
+        Az esettanulmányok célja a bizalomépítés. A mélyebb szakmai háttér és hosszabb jegyzetek az lguba71.github.io oldalon maradnak.
+      </p>
+    </div>
+
+    <div class="case-grid">
+      {caseStudies.map((study) => (
+        <CaseStudyCard {...study} />
+      ))}
+    </div>
+  </section>
+
+  <ProcessSteps
+    eyebrow="Együttműködési folyamat"
+    title="Négy lépés a bizonytalan megkereséstől a kezelhető mérnöki feladatig."
+    intro="Az első cél nem a túltervezés, hanem a bemenő információk, kockázatok és szállítandó anyagok tisztázása."
+    steps={steps}
+  />
+
+  <CTASection
+    eyebrow="Következő lépés"
+    title="Van egy kisebb, jól körülhatárolható gépészeti feladatod?"
+    text="Küldj rövid leírást, rajzot, képet vagy CAD-adatot. Az első kör célja annak eldöntése, hogy milyen próbamunka vagy részfeladat adható biztonságosan ajánlatba."
+    primaryCta={{ href: "/ajanlatkeres/", label: "Ajánlatkérés indítása" }}
+    secondaryCta={{ href: "/kapcsolat/", label: "Kapcsolat" }}
+  />
 </BaseLayout>
