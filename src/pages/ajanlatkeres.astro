@@ -17,13 +17,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </section>
 
   <section class="content-section">
-    <div class="note-box">
-      <strong>V0.1 állapot:</strong> az űrlap szerkezete elkészült, de a beküldés
-      adatbázisba mentése és a fájlfeltöltés háttértárolása még nincs bekötve. A mezők célja
-      most az ajánlatkérési logika és az oldal tartalmának tesztelése.
+    <div class="note-box form-status-box">
+      <strong>MVP / tesztállapot:</strong> az űrlap útvonala már kontrollált köszönőoldalra visz,
+      de adatbázisba mentés, e-mail értesítés és fájlfeltöltés még nincs bekötve. A végleges
+      Cloudflare D1 / R2 / Turnstile háttérrendszer későbbi ütemben készül el.
     </div>
 
-    <form class="quote-form" method="post" action="/api/quote-request" enctype="multipart/form-data">
+    <form
+      class="quote-form"
+      method="post"
+      action="/koszonjuk/"
+      enctype="multipart/form-data"
+      data-static-form="quote-request"
+      data-thank-you="/koszonjuk/"
+    >
       <label>
         Név
         <input type="text" name="name" autocomplete="name" required />
@@ -69,10 +76,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
       <label>
         Kapcsolódó fájlok feltöltése
-        <input type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx" />
+        <input type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx" disabled />
         <span class="form-help">
-          Feltölthető például PDF, kép, STEP/STP, STL, DXF/DWG, ZIP vagy Office dokumentum.
-          Nagyobb fájlokhoz később külön fájlmegosztási megoldás is használható.
+          A fájlfeltöltés helye előkészítve marad, de a tényleges feltöltés csak a Cloudflare R2 háttértár bekötése után lesz aktív.
+          Addig a mező tesztállapotban le van tiltva.
         </span>
       </label>
 
@@ -91,8 +98,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         Tudomásul veszem, hogy ez egy előzetes ajánlatkérési kapcsolatfelvétel, és az adatok kezelése a válaszadáshoz szükséges.
       </label>
 
-      <button class="button" type="submit">Ajánlatkérés elküldése</button>
+      <button class="button" type="submit">Ajánlatkérés tesztelése</button>
     </form>
+
+    <p class="note form-status-note">
+      Éles használat előtt ezt az űrlapot valódi e-mail értesítéssel, D1 adatmentéssel, R2 fájlkezeléssel és Turnstile védelemmel kell bekötni.
+    </p>
 
     <div class="cta-box">
       <h2>Nem biztos, hogyan fogalmazd meg?</h2>
