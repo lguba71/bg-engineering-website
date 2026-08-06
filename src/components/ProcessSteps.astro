@@ -1,0 +1,33 @@
+---
+interface Step {
+  title: string;
+  text: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  steps: Step[];
+}
+
+const { eyebrow, title, intro, steps } = Astro.props;
+---
+
+<section class="section section-muted process-section">
+  <div class="section-heading">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+    <p>{intro}</p>
+  </div>
+
+  <div class="process-grid">
+    {steps.map((step, index) => (
+      <article class="process-step">
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <h3>{step.title}</h3>
+        <p>{step.text}</p>
+      </article>
+    ))}
+  </div>
+</section>

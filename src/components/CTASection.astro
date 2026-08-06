@@ -1,0 +1,30 @@
+---
+interface Cta {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+}
+
+const { eyebrow, title, text, primaryCta, secondaryCta } = Astro.props;
+---
+
+<section class="cta-section">
+  <div>
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+    <p>{text}</p>
+  </div>
+
+  <div class="button-row">
+    <a class="button" href={primaryCta.href}>{primaryCta.label}</a>
+    <a class="button secondary" href={secondaryCta.href}>{secondaryCta.label}</a>
+  </div>
+</section>

@@ -1,5 +1,8 @@
 ---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import "../styles/visual-tuning.css";
 
 interface Props {
   title: string;
@@ -8,15 +11,6 @@ interface Props {
 }
 
 const { title, description, lang = "hu" } = Astro.props;
-
-const isHu = lang === "hu";
-
-const homeUrl = isHu ? "/" : "/en/";
-const servicesUrl = isHu ? "/szolgaltatasok/" : "/en/services/";
-const caseStudiesUrl = isHu ? "/esettanulmanyok/" : "/en/case-studies/";
-const quoteRequestUrl = isHu ? "/ajanlatkeres/" : "/en/request-quote/";
-const contactUrl = isHu ? "/kapcsolat/" : "/en/contact/";
-const otherLangUrl = isHu ? "/en/" : "/";
 ---
 
 <html lang={lang}>
@@ -28,32 +22,12 @@ const otherLangUrl = isHu ? "/en/" : "/";
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="site-header-inner">
-        <a class="brand" href={homeUrl}>B&G Engineering</a>
-
-        <nav class="nav" aria-label="Main navigation">
-          <a href={servicesUrl}>{isHu ? "Szolgáltatások" : "Services"}</a>
-          <a href={caseStudiesUrl}>{isHu ? "Esettanulmányok" : "Case studies"}</a>
-          <a href={quoteRequestUrl}>{isHu ? "Ajánlatkérés" : "Request quote"}</a>
-          <a href={contactUrl}>{isHu ? "Kapcsolat" : "Contact"}</a>
-          <a href={otherLangUrl}>{isHu ? "English" : "Magyar"}</a>
-        </nav>
-      </div>
-    </header>
+    <Header lang={lang} />
 
     <main class="site-main">
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <div class="site-footer-inner">
-        <p>
-          © B&G Engineering. {isHu
-            ? "Külső gépész tervezői támogatás gyártási és automatizálási projektekhez."
-            : "External mechanical design support for manufacturing and automation projects."}
-        </p>
-      </div>
-    </footer>
+    <Footer lang={lang} />
   </body>
 </html>

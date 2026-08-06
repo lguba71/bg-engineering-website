@@ -1,47 +1,166 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import TrustBar from "../../components/TrustBar.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import CaseStudyCard from "../../components/CaseStudyCard.astro";
+import ProcessSteps from "../../components/ProcessSteps.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const trustItems = [
+  { value: "Manufacturing-focused CAD", label: "models, drawings and BOMs prepared with production use in mind" },
+  { value: "Fixture / jig scope", label: "well-bounded production-support tasks before larger commitments" },
+  { value: "DFM mindset", label: "manufacturability, assembly access and documentation clarity" },
+  { value: "Engineering proof", label: "detailed technical notes are kept on the personal engineering portfolio" },
+];
+
+const services = [
+  {
+    eyebrow: "CAD · drawing · BOM",
+    title: "Model and documentation updates",
+    text: "Practical support for modifying existing models, preparing drawing packages and organizing bill-of-material information.",
+    points: ["3D model modification", "manufacturing drawing package", "bill of materials"],
+  },
+  {
+    eyebrow: "Fixture · jig",
+    title: "Production-support subtask",
+    text: "Focused positioning, clamping, inspection or assembly-support tasks without turning every inquiry into a full machine project.",
+    points: ["fixture or jig subtask", "production aid", "operator handling improvement"],
+  },
+  {
+    eyebrow: "Legacy documentation",
+    title: "Cleanup of incomplete technical inputs",
+    text: "Turning old drawings, 2D information, photos and existing parts into a clearer technical basis for quoting or production.",
+    points: ["legacy documentation review", "missing information marked", "CAD-based continuation"],
+  },
+];
+
+const reasons = [
+  {
+    title: "When internal capacity is overloaded",
+    text: "A bounded CAD, drawing or fixture task is often easier to outsource than to wait for internal engineering capacity.",
+  },
+  {
+    title: "When a trial task is the safer start",
+    text: "The first step can be a model update, drawing package, BOM or fixture subtask instead of a complete machine design project.",
+  },
+  {
+    title: "When the input data is unclear",
+    text: "Cleaning up old drawings, 2D documents and existing-part information reduces quoting and manufacturing uncertainty.",
+  },
+];
+
+const caseStudies = [
+  {
+    meta: "Fixture / jig · production support",
+    title: "Simpler, more usable production fixture concept",
+    text: "The useful solution is not always a complex machine. Sometimes the value is in a robust, practical production aid.",
+    href: "/en/case-studies/",
+    linkLabel: "Open case studies",
+  },
+  {
+    meta: "DFM / DFA · design review",
+    title: "Manufacturability review before prototype build",
+    text: "Checking critical dimensions, access and assembly sequence can reduce unnecessary manufacturing iterations.",
+    href: "/en/case-studies/",
+    linkLabel: "Read more",
+  },
+  {
+    meta: "Legacy documentation · CAD / drawing",
+    title: "Structuring incomplete technical documentation",
+    text: "Organized input data supports suppliers, later modifications and better decisions before work starts.",
+    href: "/en/case-studies/",
+    linkLabel: "Read more",
+  },
+];
+
+const steps = [
+  { title: "Short brief", text: "Send the goal, available drawings, CAD files, photos or existing documentation." },
+  { title: "Initial review", text: "We identify what is known, what is missing and which starting task can be safely bounded." },
+  { title: "Scope and quote", text: "Deliverables, assumptions, exclusions and timing are defined before the work starts." },
+  { title: "Execution", text: "The approved scope is delivered as CAD, drawings, BOM, fixture subtask or documentation cleanup." },
+];
 ---
 
 <BaseLayout
   lang="en"
-  title="B&G Engineering – Mechanical Design Support"
-  description="External mechanical design support for manufacturing, automation and prototyping projects."
+  title="B&G Engineering – Mechanical design support for manufacturing projects"
+  description="External mechanical design capacity for manufacturing and automation projects: CAD, drawings, BOM, fixtures, jigs, DFM and legacy documentation cleanup."
 >
-<section class="hero">
-  <p class="eyebrow">Manufacturing-focused mechanical design</p>
+  <Hero
+    eyebrow="Manufacturing-focused mechanical design"
+    title="External mechanical design capacity for manufacturing and automation projects."
+    lead="A practical starting point for bounded trial tasks: 3D model updates, subsystem design, drawing packages, BOMs, fixture or jig subtasks and legacy documentation cleanup."
+    primaryCta={{ href: "/en/request-quote/", label: "Request quote" }}
+    secondaryCta={{ href: "/en/case-studies/", label: "Case studies" }}
+    tags={["3D model update", "subsystem", "drawing package", "BOM", "fixture / jig", "legacy documents"]}
+    visualTitle="Trial-task logic"
+    visualItems={["Input material", "Scope check", "CAD / drawing / BOM", "Quote decision"]}
+  />
 
-  <h1>Mechanical design for manufacturing and automation projects.</h1>
+  <TrustBar items={trustItems} />
 
-  <p class="lead">
-    External engineering capacity for special-purpose machines, fixtures, jigs,
-    DFM tasks, prototypes and 3D-printing-supported development.
-  </p>
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Service entry points</p>
+      <h2>Not a second portfolio, but a conversion path for well-defined engineering work.</h2>
+      <p>
+        The B&amp;G Engineering site is meant to move business inquiries toward contact and quote requests.
+        Deeper technical proof remains on the personal engineering portfolio.
+      </p>
+    </div>
 
-  <div class="button-row">
-    <a class="button" href="/en/request-quote/">Request quote</a>
-    <a class="button secondary" href="/en/services/">Services</a>
-  </div>
-</section>
-
-  <section class="service-grid">
-    <article class="card">
-      <h2>Mechanical design</h2>
-      <p>CAD modelling, mechanical assemblies and manufacturing-focused documentation.</p>
-    </article>
-
-    <article class="card">
-      <h2>Fixtures and jigs</h2>
-      <p>Assembly, positioning, inspection and production-support fixtures.</p>
-    </article>
-
-    <article class="card">
-      <h2>DFM / DFA support</h2>
-      <p>Practical review for manufacturability, assembly and maintenance access.</p>
-    </article>
-
-    <article class="card">
-      <h2>Prototyping and 3D printing</h2>
-      <p>Test parts, fixture components and small-batch technical parts.</p>
-    </article>
+    <div class="service-grid">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
   </section>
+
+  <section class="section section-muted">
+    <div class="section-heading">
+      <p class="eyebrow">When to involve external support?</p>
+      <h2>When the task needs engineering attention, but not yet a full project team.</h2>
+    </div>
+
+    <div class="reason-grid">
+      {reasons.map((reason) => (
+        <article class="reason-card">
+          <h3>{reason.title}</h3>
+          <p>{reason.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Selected case-study areas</p>
+      <h2>Business-readable proof before a quote request.</h2>
+      <p>
+        The case-study section builds trust without turning the business site into a full technical archive.
+      </p>
+    </div>
+
+    <div class="case-grid">
+      {caseStudies.map((study) => (
+        <CaseStudyCard {...study} />
+      ))}
+    </div>
+  </section>
+
+  <ProcessSteps
+    eyebrow="Collaboration process"
+    title="Four steps from a rough inquiry to a bounded engineering task."
+    intro="The first objective is not over-design, but clarifying the inputs, risks and deliverables before quoting."
+    steps={steps}
+  />
+
+  <CTASection
+    eyebrow="Next step"
+    title="Have a small, well-bounded mechanical design task?"
+    text="Send a short description, drawing, photo or CAD input. The first step is to decide what trial task or subtask can be quoted safely."
+    primaryCta={{ href: "/en/request-quote/", label: "Start quote request" }}
+    secondaryCta={{ href: "/en/contact/", label: "Contact" }}
+  />
 </BaseLayout>

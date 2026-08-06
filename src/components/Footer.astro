@@ -1,0 +1,54 @@
+---
+interface Props {
+  lang?: "hu" | "en";
+}
+
+const { lang = "hu" } = Astro.props;
+const isHu = lang === "hu";
+
+const links = isHu
+  ? [
+      { href: "/szolgaltatasok/", label: "Szolgáltatások" },
+      { href: "/esettanulmanyok/", label: "Esettanulmányok" },
+      { href: "/ajanlatkeres/", label: "Ajánlatkérés" },
+      { href: "/kapcsolat/", label: "Kapcsolat" },
+    ]
+  : [
+      { href: "/en/services/", label: "Services" },
+      { href: "/en/case-studies/", label: "Case studies" },
+      { href: "/en/request-quote/", label: "Request quote" },
+      { href: "/en/contact/", label: "Contact" },
+    ];
+---
+
+<footer class="site-footer">
+  <div class="site-footer-inner footer-grid">
+    <div>
+      <p class="footer-brand">B&amp;G Engineering</p>
+      <p>
+        {isHu
+          ? "Üzleti konverziós oldal gyártásközeli gépészeti tervezési feladatokhoz, kapcsolatfelvételhez és ajánlatkéréshez."
+          : "Business conversion site for manufacturing-focused mechanical design inquiries, contact and quote requests."}
+      </p>
+    </div>
+
+    <div>
+      <p class="footer-title">{isHu ? "Navigáció" : "Navigation"}</p>
+      <nav class="footer-links" aria-label={isHu ? "Lábléc navigáció" : "Footer navigation"}>
+        {links.map((link) => (
+          <a href={link.href}>{link.label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div>
+      <p class="footer-title">{isHu ? "Szakmai háttér" : "Engineering proof"}</p>
+      <p>
+        {isHu
+          ? "Részletes szakmai jegyzetek és portfólióanyagok a személyes mérnöki oldalon."
+          : "Detailed engineering notes and portfolio material are available on the personal engineering site."}
+      </p>
+      <a href="https://lguba71.github.io/" target="_blank" rel="noopener">lguba71.github.io</a>
+    </div>
+  </div>
+</footer>

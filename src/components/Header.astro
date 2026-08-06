@@ -1,0 +1,48 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import MobileNav from "./MobileNav.astro";
+
+interface Props {
+  lang?: "hu" | "en";
+}
+
+const { lang = "hu" } = Astro.props;
+const isHu = lang === "hu";
+
+const homeUrl = isHu ? "/" : "/en/";
+const servicesUrl = isHu ? "/szolgaltatasok/" : "/en/services/";
+const caseStudiesUrl = isHu ? "/esettanulmanyok/" : "/en/case-studies/";
+const quoteRequestUrl = isHu ? "/ajanlatkeres/" : "/en/request-quote/";
+const contactUrl = isHu ? "/kapcsolat/" : "/en/contact/";
+
+const navItems = [
+  { href: servicesUrl, label: isHu ? "Szolgáltatások" : "Services" },
+  { href: caseStudiesUrl, label: isHu ? "Esettanulmányok" : "Case studies" },
+  { href: contactUrl, label: isHu ? "Kapcsolat" : "Contact" },
+];
+---
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href={homeUrl} aria-label="B&G Engineering">
+      <span class="brand-mark" aria-hidden="true">B&amp;G</span>
+      <span class="brand-text">
+        <strong>B&amp;G Engineering</strong>
+        <small>{isHu ? "Gépészeti tervezés" : "Mechanical design"}</small>
+      </span>
+    </a>
+
+    <nav class="nav desktop-nav" aria-label={isHu ? "Fő navigáció" : "Main navigation"}>
+      {navItems.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <LanguageSwitcher lang={lang} />
+      <a class="button button-small" href={quoteRequestUrl}>{isHu ? "Ajánlatkérés" : "Request quote"}</a>
+    </div>
+
+    <MobileNav lang={lang} navItems={navItems} quoteHref={quoteRequestUrl} />
+  </div>
+</header>

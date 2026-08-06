@@ -1,0 +1,37 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface NavItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  lang?: "hu" | "en";
+  navItems: NavItem[];
+  quoteHref: string;
+}
+
+const { lang = "hu", navItems, quoteHref } = Astro.props;
+const isHu = lang === "hu";
+---
+
+<details class="mobile-nav">
+  <summary class="mobile-nav-summary">
+    <span>{isHu ? "Menü" : "Menu"}</span>
+    <span class="mobile-nav-icon" aria-hidden="true"></span>
+  </summary>
+
+  <div class="mobile-nav-panel">
+    <nav aria-label={isHu ? "Mobil navigáció" : "Mobile navigation"}>
+      {navItems.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="mobile-nav-actions">
+      <a class="button button-small" href={quoteHref}>{isHu ? "Ajánlatkérés" : "Request quote"}</a>
+      <LanguageSwitcher lang={lang} />
+    </div>
+  </div>
+</details>
