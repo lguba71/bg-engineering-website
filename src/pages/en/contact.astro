@@ -66,7 +66,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         the quote request form gives a more structured starting point.
       </p>
 
-      <form class="quote-form contact-form" method="post" action="/api/contact-message">
+      <div class="note-box form-status-box">
+        <strong>MVP / test status:</strong> this form now routes to a controlled thank-you page,
+        but it does not send email notification or store data yet. Final handling will be connected in a later backend phase.
+      </div>
+
+      <form
+        class="quote-form contact-form"
+        method="post"
+        action="/en/thank-you/"
+        data-static-form="contact-message"
+        data-thank-you="/en/thank-you/"
+      >
         <label>
           Name
           <input type="text" name="name" autocomplete="name" required />
@@ -87,11 +98,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           I understand that the information provided in this message is used to respond to the inquiry.
         </label>
 
-        <button class="button" type="submit">Send message</button>
+        <button class="button" type="submit">Test message flow</button>
       </form>
 
       <p class="note form-status-note">
-        Technical submission handling will be connected later as an email notification workflow.
+        Before live use, the contact form must be connected to real email notification and bot protection.
       </p>
 
       <div class="cta-box">
