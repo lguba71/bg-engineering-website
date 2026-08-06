@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  lang="en"
+  title="Thank You – B&G Engineering"
+  description="Thank you page for B&G Engineering contact and quote request forms."
+>
+  <section class="hero compact">
+    <p class="eyebrow">Thank you</p>
+    <h1>The submission flow is currently in test mode.</h1>
+    <p class="lead">
+      This page confirms that the form route no longer leads to an error. Final email
+      notification, D1 data storage, R2 file storage and Turnstile protection will be connected in a later backend phase.
+    </p>
+  </section>
+
+  <section class="content-section thank-you-card">
+    <div class="note-box form-status-box">
+      <strong>MVP / test status:</strong> the form currently does not send data to a server,
+      does not write to a database and does not upload files. The Cloudflare backend must be connected before live use.
+    </div>
+
+    <h2>What does this mean now?</h2>
+    <ul class="check-list">
+      <li>The quote request and contact form flow can be tested.</li>
+      <li>The visitor is taken to a controlled confirmation page.</li>
+      <li>The file upload place is prepared, but not active yet.</li>
+      <li>Real incoming quote requests will be handled in the next backend phase.</li>
+    </ul>
+
+    <div class="button-row">
+      <a class="button" href="/en/request-quote/">Back to request quote</a>
+      <a class="button secondary" href="/en/contact/">Contact page</a>
+    </div>
+  </section>
+</BaseLayout>
