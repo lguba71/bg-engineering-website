@@ -1,0 +1,59 @@
+---
+interface Cta {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary";
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  primaryCta: Cta;
+  secondaryCta: Cta;
+  tags: string[];
+  visualTitle: string;
+  visualItems: string[];
+}
+
+const { eyebrow, title, lead, primaryCta, secondaryCta, tags, visualTitle, visualItems } = Astro.props;
+---
+
+<section class="hero hero-grid">
+  <div class="hero-copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p class="lead">{lead}</p>
+
+    <div class="button-row">
+      <a class="button" href={primaryCta.href}>{primaryCta.label}</a>
+      <a class="button secondary" href={secondaryCta.href}>{secondaryCta.label}</a>
+    </div>
+
+    <ul class="tag-row" aria-label="Project entry examples">
+      {tags.map((tag) => (
+        <li>{tag}</li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="hero-visual" aria-label={visualTitle}>
+    <div class="technical-panel">
+      <p class="panel-kicker">{visualTitle}</p>
+      <div class="technical-flow">
+        {visualItems.map((item, index) => (
+          <div class="flow-item">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <strong>{item}</strong>
+          </div>
+        ))}
+      </div>
+      <div class="drawing-grid" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</section>
