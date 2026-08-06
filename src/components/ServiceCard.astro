@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  points: string[];
+}
+
+const { eyebrow, title, text, points } = Astro.props;
+---
+
+<article class="service-card">
+  <p class="card-kicker">{eyebrow}</p>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <ul>
+    {points.map((point) => (
+      <li>{point}</li>
+    ))}
+  </ul>
+</article>
