@@ -17,13 +17,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
   </section>
 
   <section class="content-section">
-    <div class="note-box">
-      <strong>V0.1 status:</strong> the form structure is prepared, but database-backed
-      submission and file storage are not connected yet. The current goal is to test the
-      request logic and page content.
+    <div class="note-box form-status-box">
+      <strong>MVP / test status:</strong> the form now routes to a controlled thank-you page,
+      but database storage, email notification and file upload are not connected yet. The final
+      Cloudflare D1 / R2 / Turnstile backend will be added in a later phase.
     </div>
 
-    <form class="quote-form" method="post" action="/api/quote-request" enctype="multipart/form-data">
+    <form
+      class="quote-form"
+      method="post"
+      action="/en/thank-you/"
+      enctype="multipart/form-data"
+      data-static-form="quote-request"
+      data-thank-you="/en/thank-you/"
+    >
       <label>
         Name
         <input type="text" name="name" autocomplete="name" required />
@@ -69,10 +76,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
       <label>
         Related file upload
-        <input type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx" />
+        <input type="file" name="attachments" multiple accept=".pdf,.jpg,.jpeg,.png,.webp,.step,.stp,.stl,.iges,.igs,.dxf,.dwg,.zip,.txt,.doc,.docx,.xls,.xlsx" disabled />
         <span class="form-help">
-          You can upload PDFs, images, STEP/STP, STL, DXF/DWG, ZIP or Office documents.
-          Larger files can later be handled through a separate file-sharing workflow.
+          The file upload field is prepared, but actual upload will only be active after Cloudflare R2 storage is connected.
+          Until then, this field remains disabled in test mode.
         </span>
       </label>
 
@@ -91,8 +98,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         I understand that this is an initial quote request and that the provided information is used to respond to the request.
       </label>
 
-      <button class="button" type="submit">Send quote request</button>
+      <button class="button" type="submit">Test quote request</button>
     </form>
+
+    <p class="note form-status-note">
+      Before live use, this form must be connected to real email notification, D1 data storage, R2 file handling and Turnstile protection.
+    </p>
 
     <div class="cta-box">
       <h2>Not sure how to describe it?</h2>
