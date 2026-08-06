@@ -1,0 +1,18 @@
+---
+interface Props {
+  meta: string;
+  title: string;
+  text: string;
+  href: string;
+  linkLabel: string;
+}
+
+const { meta, title, text, href, linkLabel } = Astro.props;
+---
+
+<article class="case-study-card">
+  <p class="case-meta">{meta}</p>
+  <h3>{title}</h3>
+  <p>{text}</p>
+  <a href={href}>{linkLabel}</a>
+</article>
